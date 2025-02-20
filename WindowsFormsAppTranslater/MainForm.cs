@@ -66,6 +66,19 @@ namespace WindowsFormsAppTranslater
             return base_n;
         }
         /// <summary>
+        /// Метод для получения количества чисел после запятой
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns>количество чисел после запятой</returns>
+        int GetDecimalDigitsCount(string number)
+        {
+            string[] str = number.Split(',');
+            if (str.Length == 2)
+                return str[1].Length;
+            else
+                return 0;
+        }
+        /// <summary>
         /// Функция, обрабатывающая нажатие кнопки пользователем
         /// </summary>
         /// <param name="sender"></param>
@@ -83,18 +96,12 @@ namespace WindowsFormsAppTranslater
                 number = textEnterNumber.Text; //Ввод самого числа
                 base_q = ValueCheckBase(base_q, textEnterQ); //Ввод основания P
                 base_p = ValueCheckBase(base_p, textEnterP); //Ввод основания Q
-                if (base_q >= base_p && base_p >= 2) //Если основания соответствуют условиям
+                int count = GetDecimalDigitsCount(number); //Сколько чисел после запятой
+                if (base_q >= 2 && base_p >= 2) //Если основания соответствуют условиям
                 {
                     //TODO: тест, в котором проверяется, совпадает ли введённое число и исходное основание
-                    //TODO: тут должен быть сам перевод с выводом результата
+                    labelResult.Text = ClassNumbers.ConvertNumberToAnotherNumberSystem(number, base_p, base_q, count);
                 }
-                else
-                {
-                    string errorText = "Неверный ввод. \nОснование итоговой СС должно быть не меньше исходной.";
-                    ErrorForm formError = new ErrorForm(errorText);
-                    formError.ShowDialog();
-                }
-
             }
             //Если не все поля заполнены
             else
