@@ -106,6 +106,98 @@ namespace ClassLibraryNumbers
             return MasOfNum;
         }
 
+        /// <summary>
+        /// Перевод целой части в десятеричную систему счисления
+        /// </summary>
+        /// <param name="Ints">массив цифр числа</param>
+        /// <param name="I">система счисления</param>
+        /// <returns>целое число в десятеричной системе счисления</returns>
+        public static int ConvertIntsToDecimal(int[] Ints, int I)
+        {
+            int decimalint = 0;
+            
+            for (int i = 0; i < Ints.Length; i++)
+                decimalint = decimalint * I + Ints[i];
+            return decimalint;
+        }
 
+        /// <summary>
+        /// Перевод дробной части в десятеричную систему счисления
+        /// </summary>
+        /// <param name="Fracs">массив цифр числа</param>
+        /// <param name="I">система счисления</param>
+        /// <returns>дробное число в десятеричной системе счисления</returns>
+        public static double ConvertFracsToDecimal(int[] Fracs, int I)
+        {
+            double decimalfrac = 0;
+
+            for (int i = 0; i < Fracs.Length; i++)
+                decimalfrac = decimalfrac / I + Fracs[i];
+            return decimalfrac;
+        }
+
+        /// <summary>
+        /// Перевод целой части числа из десятиричной в заданную систему счисления
+        /// </summary>
+        /// <param name="decimalint">целая часть числа</param>
+        /// <param name="I">система счислению, в которую нужно перевести</param>
+        /// <returns>строковое представление дробной части числа</returns>
+        public static string ConvertIntsDecimalToI(int decimalint, int I)
+        {
+            string numsys = "";
+
+            while (decimalint > 0)
+            {
+                if (decimalint % I > 9)
+                    numsys = Convert.ToString(Convert.ToChar('A' + (decimalint % I) - 10)) + numsys;
+                else
+                    numsys = Convert.ToString(decimalint % I) + numsys;
+                decimalint /= I;
+            }
+
+            return numsys;
+        }
+
+        /// <summary>
+        /// Перевод дробной части числа из десятиричной в заданную систему счисления
+        /// </summary>
+        /// <param name="decimalfrac">дробная часть числа</param>
+        /// <param name="I">система счислению, в которую нужно перевести</param>
+        /// <param name="k">кол-во знаков после запятой</param>
+        /// <returns>строковое представление дробной части числа</returns>
+        public static string ConvertFracsDecimalToI(double decimalfrac, int I, int k)
+        {
+            string numsys = "";
+
+            for (int i = 0; i < k; i++)
+            {
+                int intpart = (int)Math.Truncate((double)(decimalfrac * I));
+                decimalfrac = decimalfrac * I - intpart;
+
+                if (intpart > 9)
+                    numsys = Convert.ToString(Convert.ToChar('A' + intpart - 10)) + numsys;
+                else
+                    numsys = Convert.ToString(intpart) + numsys;
+            }
+
+            return numsys;
+        }
+
+        /// <summary>
+        /// Перевод вещ. числа из одной системы счисления в другую
+        /// </summary>
+        /// <param name="num">переводимое число</param>
+        /// <param name="J">система счисления вводимого числа</param> 
+        /// <param name="I">система счисления в которую нада перевести</param>
+        /// <param name="k">кол-во знаков после запятой</param>
+        /// <returns>строковое представление переведённого числа</returns>
+        public static string ConvertNumberToAnotherNumberSystem(string num, int J, int I, int k)
+        {
+            string result = "";
+
+            result = ConvertIntsDecimalToI(ConvertIntsToDecimal(StringToMasOfNumbers(num)[0], J), I) + "," + ConvertFracsDecimalToI(ConvertFracsToDecimal(StringToMasOfNumbers(num)[1], J), I, k);
+
+            return result;
+        }
     }
 }

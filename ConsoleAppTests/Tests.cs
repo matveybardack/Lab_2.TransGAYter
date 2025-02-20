@@ -26,6 +26,8 @@ namespace ConsoleAppTests
             {
                 Console.WriteLine(e.Message);
             }
+
+            Console.WriteLine(Convert.ToString(10));
         }
     }
 }
