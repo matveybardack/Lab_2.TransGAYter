@@ -44,9 +44,9 @@
             // buttonClose
             // 
             this.buttonClose.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonClose.Location = new System.Drawing.Point(372, 142);
+            this.buttonClose.Location = new System.Drawing.Point(396, 170);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(127, 56);
+            this.buttonClose.Size = new System.Drawing.Size(160, 56);
             this.buttonClose.TabIndex = 1;
             this.buttonClose.Text = "ОК";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 230);
+            this.ClientSize = new System.Drawing.Size(637, 271);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.labelError);
             this.Name = "ErrorForm";
