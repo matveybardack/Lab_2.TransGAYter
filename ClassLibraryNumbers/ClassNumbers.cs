@@ -8,6 +8,7 @@ namespace ClassLibraryNumbers
 {
     /// <summary>
     /// Библиотека классов для перевода чисел из различных систем счисления (не менее 2) в другую (не более 36)
+    /// 
     /// Перевод целой части в 10-ичную систему счисления
     /// Перевод дробной части в 10-ичную систему счисления
     /// 
@@ -23,9 +24,40 @@ namespace ClassLibraryNumbers
     /// </summary>
     public static class ClassNumbers
     {
-        //Алфавит систем счисления
-        public static char[] ArrayOfChars = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+        //объявление констант
+        public const char MinDig = '0';
+        public const char MaxDig = '9';
+        public const char MinSym = 'A';
+        public const char MaxSym = 'Z';
         
+        /// <summary>
+        /// Делит строку на целую часть до запятой и дробную после
+        /// </summary>
+        /// <param name="N">Вещественное число</param>
+        /// <returns></returns>
+        /// <exception cref="Exception">Неверный ввод, если строка не является числом</exception>
+        public static string[] DevideToIntFrac(string N)
+        {
+            string[] Int_Frac;
+
+            if (N.Split(',').Length == 2)
+            {
+                Int_Frac = N.Split(',');
+                return Int_Frac;
+            }
+            else if (N.Split(',').Length == 1)
+            {
+                Int_Frac = new string[2];
+                Int_Frac[0] = N.Split(',')[0];
+                Int_Frac[1] = "0";
+                return Int_Frac;
+            }
+            else
+            {
+                throw new Exception("Неверный ввод");
+            }
+        }
+
         /// <summary>
         /// Переводит символ в число, используя алфавит систем счислений
         /// </summary>
@@ -34,13 +66,14 @@ namespace ClassLibraryNumbers
         /// <exception cref="Exception">если символа нет в алфавите выдаст исключение "Неверный ввод"</exception>
         public static int CharToNum(char num)
         {
-            for (int i = 0; i < ArrayOfChars.Length; i++)
-            {
-                if (num == ArrayOfChars[i])
-                    return i;
-            }
+            num = char.ToUpper(num);
 
-            throw new Exception("Неверный ввод");
+            if ('0' <= num && num <= '9')
+                return num - '0';
+            else if (num >= 'A' && num <= 'Z')
+                return num - 'A' + 10;
+            else
+                throw new Exception("Неверный ввод");
         }
 
         /// <summary>
@@ -52,16 +85,7 @@ namespace ClassLibraryNumbers
         {
             string[] Int_Frac;
 
-            if (N.Split(',').Length == 2)
-            {
-                Int_Frac = N.Split(',');
-            }
-            else
-            {
-                Int_Frac = new string[2];
-                Int_Frac[0] = N.Split(',')[0];
-                Int_Frac[1] = "0";
-            }
+            Int_Frac = DevideToIntFrac(N);
 
             int[][] MasOfNum = new int[2][];
 
@@ -81,5 +105,7 @@ namespace ClassLibraryNumbers
 
             return MasOfNum;
         }
+
+
     }
 }
