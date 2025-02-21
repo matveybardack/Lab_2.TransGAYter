@@ -60,7 +60,7 @@
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.labelError);
             this.Name = "ErrorForm";
-            this.Text = "ErrorForm";
+            this.Text = "Ошибка";
             this.Load += new System.EventHandler(this.ErrorForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

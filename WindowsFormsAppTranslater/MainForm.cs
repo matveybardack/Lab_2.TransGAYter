@@ -113,6 +113,18 @@ namespace WindowsFormsAppTranslater
             }
             return true;
         }
+        private Boolean IsNoneCyrillic(string number)
+        {
+            var cyrillic = Enumerable.Range(1024, 256).Select(ch => (char)ch);
+            if (number.Any(cyrillic.Contains))
+            {
+                string errorText = "Неверный ввод. \nКириллица не поддерживается";
+                ErrorForm formError = new ErrorForm(errorText);
+                formError.ShowDialog();
+                return false;
+            }
+            return true;
+        }
         /// <summary>
         /// Функция, обрабатывающая нажатие кнопки пользователем
         /// </summary>
@@ -137,8 +149,11 @@ namespace WindowsFormsAppTranslater
                     //тест, в котором проверяется, совпадает ли введённое число и исходное основание
                     if (IsAlphabet(number, base_p))
                     {
-                        string result = ClassNumbers.ConvertNumberToAnotherNumberSystem(number, base_p, base_q, count);
-                        labelResult.Text = result;
+                        if (IsNoneCyrillic(number))
+                        {
+                            string result = ClassNumbers.ConvertNumberToAnotherNumberSystem(number, base_p, base_q, count);
+                            labelResult.Text = result;
+                        }
                     }
                 }
             }
