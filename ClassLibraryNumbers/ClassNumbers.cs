@@ -146,7 +146,7 @@ namespace ClassLibraryNumbers
         {
             string numsys = "";
 
-            while (decimalint > 0)
+            do
             {
                 if (decimalint % I > 9)
                     numsys = Convert.ToString(Convert.ToChar('A' + (decimalint % I) - 10)) + numsys;
@@ -154,8 +154,9 @@ namespace ClassLibraryNumbers
                     numsys = Convert.ToString(decimalint % I) + numsys;
                 decimalint /= I;
             }
+            while (decimalint > 0);
 
-            return numsys;
+                return numsys;
         }
 
         /// <summary>
