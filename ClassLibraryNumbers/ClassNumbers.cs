@@ -194,6 +194,7 @@ namespace ClassLibraryNumbers
         public static string ConvertNumberToAnotherNumberSystem(string num, int J, int I, int k)
         {
             string result = "";
+
             if (k == 0)
                 result = ConvertIntsDecimalToI(ConvertIntsToDecimal(StringToMasOfNumbers(num)[0], J), I);
             else
