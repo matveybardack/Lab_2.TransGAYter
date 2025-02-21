@@ -194,8 +194,10 @@ namespace ClassLibraryNumbers
         public static string ConvertNumberToAnotherNumberSystem(string num, int J, int I, int k)
         {
             string result = "";
-
-            result = ConvertIntsDecimalToI(ConvertIntsToDecimal(StringToMasOfNumbers(num)[0], J), I) + "," + ConvertFracsDecimalToI(ConvertFracsToDecimal(StringToMasOfNumbers(num)[1], J), I, k);
+            if (k == 0)
+                result = ConvertIntsDecimalToI(ConvertIntsToDecimal(StringToMasOfNumbers(num)[0], J), I);
+            else
+                result = ConvertIntsDecimalToI(ConvertIntsToDecimal(StringToMasOfNumbers(num)[0], J), I) + "," + ConvertFracsDecimalToI(ConvertFracsToDecimal(StringToMasOfNumbers(num)[1], J), I, k);
 
             return result;
         }
