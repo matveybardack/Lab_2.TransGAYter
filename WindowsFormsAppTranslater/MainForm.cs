@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsAppTranslater
 {
@@ -46,7 +47,7 @@ namespace WindowsFormsAppTranslater
         /// </summary>
         /// <param name="base_n"></param>
         /// <returns name="base_n"></returns>
-        private int ValueCheckBase(int base_n, TextBox textBox)
+        private int ValueCheckBase(int base_n, System.Windows.Forms.TextBox textBox)
         {
             try
             {
@@ -70,13 +71,47 @@ namespace WindowsFormsAppTranslater
         /// </summary>
         /// <param name="number"></param>
         /// <returns>количество чисел после запятой</returns>
-        int GetDecimalDigitsCount(string number)
+        private int GetDecimalDigitsCount()
         {
-            string[] str = number.Split(',');
-            if (str.Length == 2)
-                return str[1].Length;
-            else
-                return 0;
+            int count = 0;
+            try
+            {
+                count = int.Parse(textCount.Text);
+                if (count < 0)
+                {
+                    throw new Exception();
+                }
+            }
+            catch (Exception)
+            {
+                string errorText = "Неверный ввод. \nВведите целое положительное число.";
+                ErrorForm formError = new ErrorForm(errorText);
+                formError.ShowDialog();
+                return -1;
+            }
+            return count;
+        }
+        /// <summary>
+        /// Проверка, совпадает ли введённое число с указанным исходным основанием СС
+        /// </summary>
+        /// <param name="number">число в виде строки</param>
+        /// <param name="base_n">основание на которое проверяется</param>
+        /// <returns>True или False</returns>
+        private Boolean IsAlphabet(string number, int base_n)
+        {
+            string[] alphabet = new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+            //string alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            for (int i = base_n; i < alphabet.Length; i++)
+            {
+                if (number.Contains(alphabet[i]))
+                {
+                    string errorText = "Неверный ввод. \nИсходное основание СС не соответствует числу.";
+                    ErrorForm formError = new ErrorForm(errorText);
+                    formError.ShowDialog();
+                    return false;
+                }
+            }
+            return true;
         }
         /// <summary>
         /// Функция, обрабатывающая нажатие кнопки пользователем
@@ -88,7 +123,7 @@ namespace WindowsFormsAppTranslater
             //Замена точек на запятые
             PointsReplacing();
             //Если все поля формы заполнены
-            if (textEnterNumber.Text != "" && textEnterQ.Text != "" && textEnterP.Text != "")
+            if (textEnterNumber.Text != "" && textEnterQ.Text != "" && textEnterP.Text != "" && textCount.Text != "")
             {
                 string number;
                 int base_q = 2;
@@ -96,11 +131,15 @@ namespace WindowsFormsAppTranslater
                 number = textEnterNumber.Text; //Ввод самого числа
                 base_q = ValueCheckBase(base_q, textEnterQ); //Ввод основания P
                 base_p = ValueCheckBase(base_p, textEnterP); //Ввод основания Q
-                int count = GetDecimalDigitsCount(number); //Сколько чисел после запятой
-                if (base_q >= 2 && base_p >= 2) //Если основания соответствуют условиям
+                int count = GetDecimalDigitsCount(); //Сколько чисел после запятой
+                if (base_q >= 2 && base_p >= 2 && count >= 0) //Если основания соответствуют условиям
                 {
-                    //TODO: тест, в котором проверяется, совпадает ли введённое число и исходное основание
-                    labelResult.Text = ClassNumbers.ConvertNumberToAnotherNumberSystem(number, base_p, base_q, count);
+                    //тест, в котором проверяется, совпадает ли введённое число и исходное основание
+                    if (IsAlphabet(number, base_p))
+                    {
+                        string result = ClassNumbers.ConvertNumberToAnotherNumberSystem(number, base_p, base_q, count);
+                        labelResult.Text = result;
+                    }
                 }
             }
             //Если не все поля заполнены

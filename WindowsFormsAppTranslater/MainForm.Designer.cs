@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textCount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textEnterNumber
@@ -127,11 +129,32 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Результат:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(691, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 44);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Сколько чисел\r\nпосле запятой";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox1
+            // 
+            this.textCount.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textCount.Location = new System.Drawing.Point(722, 110);
+            this.textCount.Name = "textBox1";
+            this.textCount.Size = new System.Drawing.Size(90, 29);
+            this.textCount.TabIndex = 9;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 450);
+            this.ClientSize = new System.Drawing.Size(888, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textCount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -159,6 +182,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textCount;
     }
 }
 
