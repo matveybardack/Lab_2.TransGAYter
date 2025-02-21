@@ -131,8 +131,8 @@ namespace ClassLibraryNumbers
         {
             double decimalfrac = 0;
 
-            for (int i = 0; i < Fracs.Length; i++)
-                decimalfrac = decimalfrac / I + Fracs[i];
+            for (int i = Fracs.Length - 1; i >= 0; i--)
+                decimalfrac = (decimalfrac + Fracs[i]) / I;
             return decimalfrac;
         }
 
@@ -177,7 +177,7 @@ namespace ClassLibraryNumbers
                 if (intpart > 9)
                     numsys = Convert.ToString(Convert.ToChar('A' + intpart - 10)) + numsys;
                 else
-                    numsys = Convert.ToString(intpart) + numsys;
+                    numsys = numsys + Convert.ToString(intpart);
             }
 
             return numsys;

@@ -12,3 +12,17 @@ C:\Users\Egor\Downloads\Lab_2.TransGAYter-master\WindowsFormsAppTranslater\obj\D
 C:\Users\Egor\Downloads\Lab_2.TransGAYter-master\WindowsFormsAppTranslater\obj\Debug\WindowsFormsAppTranslater.pdb
 C:\Users\Egor\Downloads\Lab_2.TransGAYter-master\WindowsFormsAppTranslater\obj\Debug\WindowsFormsAppTranslater.ErrorForm.resources
 C:\Users\Egor\Downloads\Lab_2.TransGAYter-master\WindowsFormsAppTranslater\obj\Debug\WindowsFormsAppTranslater.MainForm.resources
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\bin\Debug\WindowsFormsAppTranslater.exe.config
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\bin\Debug\WindowsFormsAppTranslater.exe
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\bin\Debug\WindowsFormsAppTranslater.pdb
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\bin\Debug\ClassLibraryNumbers.dll
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\bin\Debug\ClassLibraryNumbers.pdb
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\obj\Debug\WindowsFormsAppTranslater.csproj.AssemblyReference.cache
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\obj\Debug\WindowsFormsAppTranslater.ErrorForm.resources
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\obj\Debug\WindowsFormsAppTranslater.MainForm.resources
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\obj\Debug\WindowsFormsAppTranslater.Properties.Resources.resources
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\obj\Debug\WindowsFormsAppTranslater.csproj.GenerateResource.cache
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\obj\Debug\WindowsFormsAppTranslater.csproj.CoreCompileInputs.cache
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\obj\Debug\WindowsF.6F1D7B77.Up2Date
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\obj\Debug\WindowsFormsAppTranslater.exe
+C:\Users\matba\Desktop\C#\Биллиг\Lab_2.Transgayter\WindowsFormsAppTranslater\obj\Debug\WindowsFormsAppTranslater.pdb

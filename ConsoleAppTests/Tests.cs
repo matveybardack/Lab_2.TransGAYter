@@ -12,22 +12,23 @@ namespace ConsoleAppTests
         static void Main(string[] args)
         {
             //временнный тест (проверял свой код) удалить
-            string a = Console.ReadLine();
+            //string a = Console.ReadLine();
 
-            try
-            {
-                for (int i = 0; i < ClassNumbers.StringToMasOfNumbers(a)[0].Length; i++)
-                    Console.Write(ClassNumbers.StringToMasOfNumbers(a)[0][i]);
-                Console.WriteLine();
-                for (int i = 0; i < ClassNumbers.StringToMasOfNumbers(a)[1].Length; i++)
-                    Console.Write(ClassNumbers.StringToMasOfNumbers(a)[1][i]);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
-            Console.WriteLine(Convert.ToString(10));
+            //try
+            //{
+            //    for (int i = 0; i < ClassNumbers.StringToMasOfNumbers(a)[0].Length; i++)
+            //        Console.Write(ClassNumbers.StringToMasOfNumbers(a)[0][i]);
+            //    Console.WriteLine();
+            //    for (int i = 0; i < ClassNumbers.StringToMasOfNumbers(a)[1].Length; i++)
+            //        Console.Write(ClassNumbers.StringToMasOfNumbers(a)[1][i]);
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
+            int[] mas = {5};
+            Console.WriteLine(ClassNumbers.ConvertFracsToDecimal(mas, 10));
+            Console.WriteLine(ClassNumbers.ConvertNumberToAnotherNumberSystem("111,5", 10, 16, 3));
         }
     }
 }
