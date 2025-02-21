@@ -113,6 +113,11 @@ namespace WindowsFormsAppTranslater
             }
             return true;
         }
+        /// <summary>
+        /// Функцция для проверки на кириллицу
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns>True или False</returns>
         private Boolean IsNoneCyrillic(string number)
         {
             var cyrillic = Enumerable.Range(1024, 256).Select(ch => (char)ch);
