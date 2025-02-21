@@ -130,9 +130,10 @@ namespace ClassLibraryNumbers
         public static double ConvertFracsToDecimal(int[] Fracs, int I)
         {
             double decimalfrac = 0;
+            double p = 1.0 / I;
 
             for (int i = Fracs.Length - 1; i >= 0; i--)
-                decimalfrac = (decimalfrac + Fracs[i]) / I;
+                decimalfrac = (decimalfrac + Fracs[i]) * p;
             return decimalfrac;
         }
 
@@ -195,12 +196,16 @@ namespace ClassLibraryNumbers
         public static string ConvertNumberToAnotherNumberSystem(string num, int J, int I, int k)
         {
             string result = "";
-
+            int[] ints = StringToMasOfNumbers(num)[0];
+            int[] fracs = StringToMasOfNumbers(num)[1];
+            int decint = ConvertIntsToDecimal(ints, J);
+            double decfrac = ConvertFracsToDecimal(fracs, J);
+            string strint = ConvertIntsDecimalToI(decint, I);
+            string strfrac = ConvertFracsDecimalToI(decfrac, I, k);
             if (k == 0)
-                result = ConvertIntsDecimalToI(ConvertIntsToDecimal(StringToMasOfNumbers(num)[0], J), I);
+                result = strint;
             else
-                result = ConvertIntsDecimalToI(ConvertIntsToDecimal(StringToMasOfNumbers(num)[0], J), I) + "," + ConvertFracsDecimalToI(ConvertFracsToDecimal(StringToMasOfNumbers(num)[1], J), I, k);
-
+                result = strint + "," + strfrac;
             return result;
         }
     }
