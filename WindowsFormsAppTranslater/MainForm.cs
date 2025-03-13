@@ -99,8 +99,8 @@ namespace WindowsFormsAppTranslater
         /// <returns>True или False</returns>
         private Boolean IsAlphabet(string number, int base_n)
         {
+            //Алфавит всех возможных символов для числа
             string[] alphabet = new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-            //string alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             for (int i = base_n; i < alphabet.Length; i++)
             {
                 if (number.Contains(alphabet[i]))
@@ -137,6 +137,7 @@ namespace WindowsFormsAppTranslater
         /// <param name="e"></param>
         private void buttonResult_Click(object sender, EventArgs e)
         {
+            string sign = "";
             //Замена точек на запятые
             PointsReplacing();
             //Если все поля формы заполнены
@@ -149,15 +150,20 @@ namespace WindowsFormsAppTranslater
                 base_q = ValueCheckBase(base_q, textEnterQ); //Ввод основания P
                 base_p = ValueCheckBase(base_p, textEnterP); //Ввод основания Q
                 int count = GetDecimalDigitsCount(); //Сколько чисел после запятой
-                if (base_q >= 2 && base_p >= 2 && count >= 0) //Если основания соответствуют условиям
+                if (number[0] == '-')
                 {
+                    sign = "-";
+                    number = number.Remove(0, 1);
+                }
+                if (base_q >= 2 && base_p >= 2 && count >= 0) //Если основания соответствуют условиям
+                {                    
                     //тест, в котором проверяется, совпадает ли введённое число и исходное основание
                     if (IsAlphabet(number, base_p))
                     {
                         if (IsNoneCyrillic(number))
                         {
                             string result = ClassNumbers.ConvertNumberToAnotherNumberSystem(number, base_p, base_q, count);
-                            labelResult.Text = result;
+                            labelResult.Text = sign + result;
                         }
                     }
                 }
@@ -174,6 +180,12 @@ namespace WindowsFormsAppTranslater
         private void labelResult_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            InfoForm infoForm = new InfoForm();
+            infoForm.ShowDialog();
         }
     }
 }

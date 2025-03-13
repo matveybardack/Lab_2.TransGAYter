@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="free-icon-info-5683325" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\free-icon-info-5683325.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Дано число N, записанное в системе счисления p. Результат: Число N,
+записанное в системе счисления q. Целая и дробная часть представлены
+цифрами, допустимыми в системах счисления p и q соответственно.
+Целое число m – задает точность представления – число цифр после 
+запятой в представлении числа N в системе  счисления q.
+Программа на вход получает число в одной системе счисления.
+Пользователь выбирает систему счисления в которую он хочет перевести
+число. Системы счисления для перевода 2-36.</value>
   </data>
 </root>
