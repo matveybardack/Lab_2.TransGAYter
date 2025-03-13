@@ -179,6 +179,7 @@
             this.Controls.Add(this.textEnterNumber);
             this.Name = "MainForm";
             this.Text = "Translator";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

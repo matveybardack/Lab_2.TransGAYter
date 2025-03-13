@@ -45,16 +45,12 @@ namespace ClassLibraryNumbers
                 Int_Frac = N.Split(',');
                 return Int_Frac;
             }
-            else if (N.Split(',').Length == 1)
+            else
             {
                 Int_Frac = new string[2];
                 Int_Frac[0] = N.Split(',')[0];
                 Int_Frac[1] = "0";
                 return Int_Frac;
-            }
-            else
-            {
-                throw new Exception("Неверный ввод");
             }
         }
 
@@ -70,10 +66,8 @@ namespace ClassLibraryNumbers
 
             if ('0' <= num && num <= '9')
                 return num - '0';
-            else if (num >= 'A' && num <= 'Z')
-                return num - 'A' + 10;
             else
-                throw new Exception("Неверный ввод");
+                return num - 'A' + 10;
         }
 
         /// <summary>
@@ -95,7 +89,8 @@ namespace ClassLibraryNumbers
             int[] Fracs = new int[Frac.Length];
 
             for (int i = 0; i < Int_Frac[0].Length; i++)
-                    Ints[i] = CharToNum(Int[i]);
+                Ints[i] = CharToNum(Int[i]);
+                    
 
             for (int i = 0; i < Int_Frac[1].Length; i++)
                 Fracs[i] = CharToNum(Frac[i]);

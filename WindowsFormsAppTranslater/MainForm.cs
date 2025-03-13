@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -144,12 +145,35 @@ namespace WindowsFormsAppTranslater
             if (textEnterNumber.Text != "" && textEnterQ.Text != "" && textEnterP.Text != "" && textCount.Text != "")
             {
                 string number;
+                char[] alphabet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ',' };
                 int base_q = 2;
                 int base_p = 2;
+
                 number = textEnterNumber.Text; //Ввод самого числа
                 base_q = ValueCheckBase(base_q, textEnterQ); //Ввод основания P
                 base_p = ValueCheckBase(base_p, textEnterP); //Ввод основания Q
                 int count = GetDecimalDigitsCount(); //Сколько чисел после запятой
+
+                //Проверка на то что в числе содержится более 1 запятой
+                if (textEnterNumber.Text.Count(p => p == ',') > 1)
+                {
+                    string errorText = "Неверный ввод. \nВ числе не должно быть больше 1 запятой.";
+                    ErrorForm formError = new ErrorForm(errorText);
+                    formError.ShowDialog();
+                    return;
+                }
+                //Проверка на то что число содержит лишние символы
+                foreach (char elem in textEnterNumber.Text)
+                {
+                    if (!alphabet.Contains(Char.ToUpper(elem)))
+                    {
+                        string errorText = "Неверный ввод. \nЧисло не должно содержать никаких \nсимволов кроме цифр и букв.";
+                        ErrorForm formError = new ErrorForm(errorText);
+                        formError.ShowDialog();
+                        return;
+                    }
+                }
+
                 if (number[0] == '-')
                 {
                     sign = "-";
@@ -186,6 +210,11 @@ namespace WindowsFormsAppTranslater
         {
             InfoForm infoForm = new InfoForm();
             infoForm.ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
