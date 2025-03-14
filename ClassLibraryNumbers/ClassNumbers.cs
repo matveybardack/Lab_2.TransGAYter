@@ -168,11 +168,11 @@ namespace ClassLibraryNumbers
 
             for (int i = 0; i < k; i++)
             {
-                int intpart = (int)Math.Truncate((double)(decimalfrac * I));
+                double intpart = (double)Math.Truncate((double)(decimalfrac * I));
                 decimalfrac = decimalfrac * I - intpart;
 
                 if (intpart > 9)
-                    numsys = Convert.ToString(Convert.ToChar('A' + intpart - 10)) + numsys;
+                    numsys = numsys + Convert.ToString(Convert.ToChar('A' + (int)intpart - 10));
                 else
                     numsys = numsys + Convert.ToString(intpart);
             }

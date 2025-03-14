@@ -11,7 +11,7 @@ namespace ConsoleAppTests
     {
         static void Main()
         {
-            // "111,5" from 10 to 16
+            //"111,5" from 10 to 16
             // "12,2" from 3 to 4
             // "71,62" from 8 to 2
             // "ZS,V" from 36 to 10
@@ -35,6 +35,7 @@ namespace ConsoleAppTests
                 else
                     Console.WriteLine("Ответ некорректен. {0} из {1} в {2} = {3}", number[i], from[i], to[i], results[i]);
             }
+            Console.WriteLine(ClassNumbers.ConvertNumberToAnotherNumberSystem("2748,670", 10, 16, 8));
         }
     }
 }
