@@ -107,9 +107,9 @@ namespace ClassLibraryNumbers
         /// <param name="Ints">массив цифр числа</param>
         /// <param name="I">система счисления</param>
         /// <returns>целое число в десятеричной системе счисления</returns>
-        public static int ConvertIntsToDecimal(int[] Ints, int I)
+        public static long ConvertIntsToDecimal(int[] Ints, int I)
         {
-            int decimalint = 0;
+            long decimalint = 0;
             
             for (int i = 0; i < Ints.Length; i++)
                 decimalint = decimalint * I + Ints[i];
@@ -138,7 +138,7 @@ namespace ClassLibraryNumbers
         /// <param name="decimalint">целая часть числа</param>
         /// <param name="I">система счислению, в которую нужно перевести</param>
         /// <returns>строковое представление дробной части числа</returns>
-        public static string ConvertIntsDecimalToI(int decimalint, int I)
+        public static string ConvertIntsDecimalToI(long decimalint, int I)
         {
             string numsys = "";
 
@@ -193,7 +193,7 @@ namespace ClassLibraryNumbers
             string result = "";
             int[] ints = StringToMasOfNumbers(num)[0];
             int[] fracs = StringToMasOfNumbers(num)[1];
-            int decint = ConvertIntsToDecimal(ints, J);
+            long decint = ConvertIntsToDecimal(ints, J);
             double decfrac = ConvertFracsToDecimal(fracs, J);
             string strint = ConvertIntsDecimalToI(decint, I);
             string strfrac = ConvertFracsDecimalToI(decfrac, I, k);
